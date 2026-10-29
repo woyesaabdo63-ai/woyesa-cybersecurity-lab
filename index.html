@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Woyesa Phishing Simulation Lab</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #eef2f7;
+        color: #1f2937;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    header {
+        background: #123b70;
+        color: white;
+        padding: 25px 15px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+    header h1 {
+        margin-top: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 25px auto;
+    }
+
+    .card {
+        background: white;
+        margin-bottom: 20px;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+        color: #123b70;
+    }
+
+    .notice {
+        background: #e0f2fe;
+        padding: 14px;
+        border-left: 5px solid #0284c7;
+        border-radius: 5px;
+    }
+
+    .message {
+        background: #fff7ed;
+        border-left: 5px solid #f59e0b;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+    }
+
+    button {
+        background: #174ea6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 11px 16px;
+        margin: 5px 5px 5px 0;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button:hover {
+        background: #0f326b;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 6px 0 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .result {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        background: #f1f5f9;
+    }
+
+    footer {
+        text-align: center;
+        color: #64748b;
+        padding: 20px;
+    }
+
+    .small {
+        font-size: 14px;
+        color: #475569;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Woyesa Phishing Simulation Lab</h1>
+    <p>Learn to recognize suspicious messages and protect your accounts.</p>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Welcome to Cybersecurity Training</h2>
+
+        <p>
+            This website helps you practice recognizing common phishing
+            warning signs in a safe learning environment.
+        </p>
+
+        <div class="notice">
+            <strong>Training notice:</strong>
+            This is an educational demonstration. Do not enter real
+            passwords or personal information. The demonstration form
+            below does not send or store the information you enter.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>1. Security Challenge</h2>
+
+        <p>Read this example message:</p>
+
+        <div class="message">
+            "Your account needs verification.
+            Always check the website address before clicking."
+        </div>
+
+        <button type="button" onclick="showSecurityTip()">
+            Analyze Message
+        </button>
+
+        <p id="securityResult" class="result" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+        <h2>2. Phishing Awareness Quiz</h2>
+
+        <p>Imagine you receive this message:</p>
+
+        <div class="message">
+            "URGENT! Your account will be blocked today.
+            Click an unfamiliar link immediately!"
+        </div>
+
+        <p>What should you do?</p>
+
+        <button type="button" onclick="checkAnswer('suspicious')">
+            Treat it as suspicious
+        </button>
+
+        <button type="button" onclick="checkAnswer('safe')">
+            Trust it immediately
+        </button>
+
+        <p id="quizResult" class="result" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+        <h2>3. Login Form Security Demonstration</h2>
+
+        <p>
+            This is a local demonstration of a login form.
+            Use fictional information only.
+        </p>
+
+        <form id="demoForm">
+            <label for="demoUsername">Demo username:</label>
+
+            <input
+                type="text"
+                id="demoUsername"
+                placeholder="Enter a fictional username"
+                autocomplete="off"
+                required
+            >
+
+            <label for="demoPassword">Practice password:</label>
+
+            <input
+                type="password"
+                id="demoPassword"
+                placeholder="Enter a fictional password"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">Test Demo Login</button>
+        </form>
+
+        <p id="loginResult" class="result" aria-live="polite"></p>
+
+        <p class="small">
+            Safety: This demo does not send or store your username
+            or password. Do not enter real account credentials.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>4. Remember These Safety Tips</h2>
+
+        <ul>
+            <li>Check the sender's address carefully.</li>
+            <li>Be cautious of urgent threats and pressure.</li>
+            <li>Check website domains before opening unfamiliar links.</li>
+            <li>Never share passwords through suspicious links.</li>
+            <li>Visit the official website directly when in doubt.</li>
+            <li>Use multi-factor authentication when available.</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    Woyesa Digital Security Education | Learning Safely
+</footer>
+
+<script>
+    function showSecurityTip() {
+        document.getElementById("securityResult").textContent =
+            "Security tip: Check the sender and website domain. " +
+            "If you are unsure, visit the official website directly.";
+    }
+
+    function checkAnswer(answer) {
+        const result = document.getElementById("quizResult");
+
+        if (answer === "suspicious") {
+            result.textContent =
+                "Correct! Urgent threats and unfamiliar links are " +
+                "warning signs. Verify the message independently.";
+        } else {
+            result.textContent =
+                "Not quite. Urgent threats and unfamiliar links can " +
+                "indicate phishing. Verify the message before acting.";
+        }
+    }
+
+    document.getElementById("demoForm").addEventListener(
+        "submit",
+        function(event) {
+            event.preventDefault();
+
+            document.getElementById("loginResult").textContent =
+                "Training complete! This demonstration did not send " +
+                "or store your information. Never enter real passwords " +
+                "on unfamiliar websites.";
+
+            this.reset();
+        }
+    );
+</script>
+
+</body>
+</html>
