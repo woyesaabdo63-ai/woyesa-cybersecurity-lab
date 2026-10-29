@@ -1,622 +1,82 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="om">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d1a">
-<title>Woyesa Cybersecurity Lab</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-:root {
-  --bg: #080d1a;
-  --panel: #101a2e;
-  --blue: #38bdf8;
-  --text: #e8f0ff;
-  --muted: #a8b5cc;
-  --green: #4ade80;
-  --border: #253550;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-}
-
-header {
-  padding: 18px 7%;
-  background: #0c1425;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.logo span {
-  color: var(--blue);
-}
-
-.step-label {
-  color: var(--blue);
-  font-size: 13px;
-}
-
-main {
-  max-width: 900px;
-  min-height: 75vh;
-  margin: auto;
-  padding: 35px 20px;
-}
-
-.screen {
-  display: none;
-  animation: appear 0.35s ease;
-}
-
-.screen.active {
-  display: block;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero {
-  text-align: center;
-  padding: 60px 10px;
-}
-
-.shield {
-  font-size: 65px;
-}
-
-h1 {
-  font-size: clamp(35px, 7vw, 58px);
-  line-height: 1.2;
-}
-
-h1 span,
-h2 span {
-  color: var(--blue);
-}
-
-p {
-  color: var(--muted);
-}
-
-.hero p {
-  max-width: 600px;
-  margin: 20px auto 30px;
-}
-
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 25px;
-  margin: 20px 0;
-}
-
-.badge {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 20px;
-  color: var(--blue);
-  background: #10253c;
-  border: 1px solid #28577a;
-  font-size: 12px;
-}
-
-button {
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 12px 18px;
-  border: 1px solid #28577a;
-  background: transparent;
-  color: var(--blue);
-  margin: 5px 5px 5px 0;
-}
-
-button:hover {
-  background: #172b45;
-}
-
-button.primary {
-  background: var(--blue);
-  color: #06101e;
-  font-weight: bold;
-  border: none;
-}
-
-button.primary:hover {
-  background: #7dd3fc;
-}
-
-button.answer {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #080f1e;
-  color: var(--text);
-  border: 1px solid var(--border);
-  margin: 10px 0;
-}
-
-button.answer:hover {
-  border-color: var(--blue);
-}
-
-button.answer:disabled {
-  cursor: default;
-  opacity: 0.85;
-}
-
-.message {
-  padding: 18px;
-  background: #080f1e;
-  border: 1px solid #34425a;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.warning {
-  border-left: 4px solid #fbbf24;
-}
-
-.notice {
-  border-left: 4px solid var(--green);
-}
-
-.feedback {
-  min-height: 50px;
-  font-weight: bold;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--border);
-  padding-top: 20px;
-  margin-top: 25px;
-}
-
-.progress {
-  height: 6px;
-  background: #1c2940;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 15px 0 25px;
-}
-
-#progressBar {
-  width: 20%;
-  height: 100%;
-  background: var(--blue);
-  transition: width 0.3s;
-}
-
-ul {
-  padding-left: 22px;
-}
-
-li {
-  margin: 10px 0;
-  color: var(--muted);
-}
-
-.result-score {
-  color: var(--green);
-  font-size: 36px;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 13px;
-}
-
-@media (max-width: 600px) {
-  header {
-    justify-content: center;
-    text-align: center;
-  }
-
-  main {
-    padding: 20px 15px;
-  }
-
-  .hero {
-    padding: 35px 5px;
-  }
-
-  .card {
-    padding: 18px;
-  }
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woyesa Cybersecurity Lab - Login Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 { color: #333; margin-bottom: 20px; }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label { display: block; margin-bottom: 5px; color: #666; font-size: 14px; }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #0056b3; }
+        .warning-text {
+            margin-top: 15px;
+            color: red;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">WOYESA<span>.CYBER</span></div>
-  <div class="step-label" id="headerStep">STEP 1 OF 5</div>
-</header>
+<div class="login-box">
+    <h2>Woyesa Cybersecurity Lab</h2>
+    <p style="font-size: 14px; color: #555;">Maaloo itti fufuuf seenaa (Sign In).</p>
+    
+    <!-- Bakka action="" jedhu kanatti liinkii backend odeeffannoo sassaabu sanatu seena -->
+    <form action="ma_hojjedhu.php" method="POST">
+        <div class="input-group">
+            <label>Email Address:</label>
+            <input type="email" name="email" placeholder="example@gmail.com" required>
+        </div>
+        <div class="input-group">
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Password kee galchi" required>
+        </div>
+        <button type="submit">Itti Fufi</button>
+    </form>
 
-<main>
-  <div class="progress">
-    <div id="progressBar"></div>
-  </div>
-
-  <!-- STEP 1: HOME -->
-
-  <section class="screen active" id="home">
-    <div class="hero">
-      <div class="shield">🛡️</div>
-      <div class="badge">CYBERSECURITY AWARENESS LAB</div>
-      <h1>Think Before<br>You <span>Click.</span></h1>
-      <p>
-        Welcome to Woyesa Cybersecurity Lab. Learn how to recognize
-        phishing messages and protect your online accounts through
-        a simple, interactive learning journey.
-      </p>
-      <button class="primary" onclick="goTo('challenge')">
-        Get Started →
-      </button>
+    <div class="warning-text">
+        ⚠️ LAB SIMULATION ONLY: Maaloo password kee isa dhugaa kanaan dura fayyadamtu hin galchin!
     </div>
-
-<div class="message notice">
-  <strong>Safe learning environment</strong>
-  <p>
-    This is an educational simulation. Do not enter real passwords
-    or personal information into practice activities.
-  </p>
 </div>
-
-  </section>
-
-  <!-- STEP 2: CHALLENGE -->
-
-  <section class="screen" id="challenge">
-    <span class="badge">STEP 2 — CHALLENGE</span>
-    <h2>🔎 Phishing <span>Challenge</span></h2>
-    <p>
-      Read the fictional message below. Identify the warning signs
-      before continuing.
-    </p>
-
-<div class="card">
-  <div class="message warning">
-    <strong>TRAINING EXAMPLE</strong>
-    <p style="color:#fbbf24">
-      "URGENT! Your account may be blocked today.
-      Verify your password immediately."
-    </p>
-  </div>
-
-  <h3>What makes this message suspicious?</h3>
-
-  <button class="answer" onclick="analyze('urgent')">
-    A. It uses urgent or threatening language.
-  </button>
-
-  <button class="answer" onclick="analyze('normal')">
-    B. Every message about an account is a scam.
-  </button>
-
-  <button class="answer" onclick="analyze('password')">
-    C. It asks the recipient to verify a password through an unexpected message.
-  </button>
-
-  <div id="analysisFeedback" class="feedback" aria-live="polite"></div>
-</div>
-
-<div class="navigation">
-  <button onclick="goTo('home')">← Back</button>
-  <button class="primary" onclick="goTo('quiz')">Next: Quiz →</button>
-</div>
-
-  </section>
-
-  <!-- STEP 3: QUIZ -->
-
-  <section class="screen" id="quiz">
-    <span class="badge">STEP 3 — QUIZ</span>
-    <h2>🧠 Test Your <span>Knowledge</span></h2>
-    <p>Choose the safest answer to each question.</p>
-
-```
-<div class="card">
-  <h3 id="questionText"></h3>
-  <div id="answerOptions"></div>
-  <div id="quizFeedback" class="feedback" aria-live="polite"></div>
-  <p id="questionCount">Question 1 of 3</p>
-  <button class="primary" id="nextQuestion" onclick="nextQuestion()" disabled>
-    Next Question →
-  </button>
-</div>
-
-<div class="navigation">
-  <button onclick="goTo('challenge')">← Back</button>
-  <button onclick="goTo('lesson')">Skip to Lesson →</button>
-</div>
-
-  </section>
-
-  <!-- STEP 4: SECURITY LESSON -->
-
-  <section class="screen" id="lesson">
-    <span class="badge">STEP 4 — SECURITY LESSON</span>
-    <h2>🛡️ Stay <span>Safe Online</span></h2>
-    <p>Remember these important cybersecurity habits.</p>
-
-<div class="card">
-  <h3>1. Check the sender</h3>
-  <p>Unexpected messages may pretend to come from trusted organizations. Verify the sender independently.</p>
-
-  <h3>2. Think before clicking</h3>
-  <p>Do not rush because a message threatens to close your account.</p>
-
-  <h3>3. Protect your password</h3>
-  <p>Never share your password or verification codes through unexpected links or messages.</p>
-
-  <h3>4. Visit official websites</h3>
-  <p>When uncertain, open the official app or type the known website address yourself.</p>
-
-  <h3>5. Enable extra protection</h3>
-  <p>Use multi-factor authentication when available.</p>
-</div>
-
-<div class="message notice">
-  <strong>Remember:</strong>
-  <p>A professional-looking website is not automatically trustworthy.</p>
-</div>
-
-<div class="navigation">
-  <button onclick="goTo('quiz')">← Back</button>
-  <button class="primary" onclick="showResult()">Finish Training →</button>
-</div>
-
-  </section>
-
-  <!-- STEP 5: RESULT -->
-
-  <section class="screen" id="result">
-    <div class="hero">
-      <div class="shield">🏆</div>
-      <h1>Training <span>Complete!</span></h1>
-      <p>You have reached the end of the Woyesa Cybersecurity learning journey.</p>
-      <div class="result-score" id="finalScore">0 / 3</div>
-      <p id="finalMessage"></p>
-    </div>
-
-<div class="card">
-  <h3>What you learned</h3>
-  <ul>
-    <li>Recognizing suspicious messages.</li>
-    <li>Identifying urgency and requests for passwords.</li>
-    <li>Checking messages through official channels.</li>
-    <li>Protecting passwords and verification codes.</li>
-  </ul>
-</div>
-
-<div class="navigation">
-  <button class="primary" onclick="restartTraining()">↻ Start Again</button>
-  <button onclick="goTo('home')">← Home</button>
-</div>
-
-  </section>
-</main>
-
-<footer>
-  <strong>WOYESA.CYBER</strong>
-  <p>Learn. Detect. Protect.</p>
-  Educational cybersecurity simulation — no credentials collected.
-</footer>
-
-<script>
-const steps = ["home", "challenge", "quiz", "lesson", "result"];
-const stepNames = [
-  "STEP 1 OF 5",
-  "STEP 2 OF 5",
-  "STEP 3 OF 5",
-  "STEP 4 OF 5",
-  "STEP 5 OF 5"
-];
-
-function goTo(screenId) {
-  document.querySelectorAll(".screen").forEach(function(screen) {
-    screen.classList.remove("active");
-  });
-
-  const target = document.getElementById(screenId);
-  target.classList.add("active");
-
-  const index = steps.indexOf(screenId);
-  document.getElementById("headerStep").textContent = stepNames[index];
-  document.getElementById("progressBar").style.width =
-    ((index + 1) * 20) + "%";
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function analyze(choice) {
-  const feedback = document.getElementById("analysisFeedback");
-
-  if (choice === "urgent") {
-    feedback.textContent =
-      "Correct observation! Urgency is a warning sign. Also check whether the message asks for sensitive information.";
-    feedback.style.color = "#4ade80";
-  } else if (choice === "password") {
-    feedback.textContent =
-      "Correct! An unexpected request to verify a password is suspicious. Never follow an unexpected login link.";
-    feedback.style.color = "#4ade80";
-  } else {
-    feedback.textContent =
-      "Not every account message is fraudulent. Check the sender, the context, and whether the request is legitimate.";
-    feedback.style.color = "#fbbf24";
-  }
-}
-
-const questions = [
-  {
-    question: "1. An unexpected message threatens to close your account. What should you do?",
-    answers: [
-      "Click its link immediately.",
-      "Verify the message using the official website or app.",
-      "Reply with your password."
-    ],
-    correct: 1,
-    explanation: "Correct! Verify unexpected messages independently."
-  },
-  {
-    question: "2. A stranger asks you to share a verification code. What is safest?",
-    answers: [
-      "Share it to prove your identity.",
-      "Post it in a group chat.",
-      "Keep it private and do not share it."
-    ],
-    correct: 2,
-    explanation: "Correct! Verification codes should remain private."
-  },
-  {
-    question: "3. A website looks professional. Does that prove it is safe?",
-    answers: [
-      "Yes, professional design always means it is safe.",
-      "No. Check the address and verify the website independently.",
-      "Yes, if it uses blue and black colors."
-    ],
-    correct: 1,
-    explanation: "Correct! Appearance and colors do not prove trustworthiness."
-  }
-];
-
-let currentQuestion = 0;
-let quizScore = 0;
-let answered = false;
-
-function loadQuestion() {
-  answered = false;
-
-  const q = questions[currentQuestion];
-  document.getElementById("questionText").textContent = q.question;
-  document.getElementById("questionCount").textContent =
-    "Question " + (currentQuestion + 1) + " of " + questions.length;
-  document.getElementById("quizFeedback").textContent = "";
-
-  const options = document.getElementById("answerOptions");
-  options.innerHTML = "";
-
-  q.answers.forEach(function(answer, index) {
-    const button = document.createElement("button");
-    button.className = "answer";
-    button.type = "button";
-    button.textContent = answer;
-    button.addEventListener("click", function() {
-      checkAnswer(index, button);
-    });
-    options.appendChild(button);
-  });
-
-  const next = document.getElementById("nextQuestion");
-  next.disabled = true;
-  next.textContent =
-    currentQuestion === questions.length - 1
-      ? "Finish Quiz →"
-      : "Next Question →";
-}
-
-function checkAnswer(index, selectedButton) {
-  if (answered) return;
-  answered = true;
-
-  const q = questions[currentQuestion];
-  const buttons = document.querySelectorAll("#answerOptions button");
-  buttons.forEach(function(button) {
-    button.disabled = true;
-  });
-
-  const feedback = document.getElementById("quizFeedback");
-
-  if (index === q.correct) {
-    quizScore++;
-    feedback.textContent = q.explanation;
-    feedback.style.color = "#4ade80";
-  } else {
-    feedback.textContent =
-      "Not quite. " + q.explanation;
-    feedback.style.color = "#fbbf24";
-  }
-
-  selectedButton.style.borderColor =
-    index === q.correct ? "#4ade80" : "#fbbf24";
-
-  document.getElementById("nextQuestion").disabled = false;
-}
-
-function nextQuestion() {
-  if (!answered) return;
-
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    loadQuestion();
-  } else {
-    goTo("lesson");
-  }
-}
-
-function showResult() {
-  document.getElementById("finalScore").textContent =
-    quizScore + " / " + questions.length;
-
-  document.getElementById("finalMessage").textContent =
-    quizScore === questions.length
-      ? "Excellent work! You answered every question correctly."
-      : "Good effort! Review the lessons and try the quiz again.";
-
-  goTo("result");
-}
-
-function restartTraining() {
-  currentQuestion = 0;
-  quizScore = 0;
-  loadQuestion();
-
-  document.getElementById("analysisFeedback").textContent = "";
-
-  goTo("home");
-}
-
-loadQuestion();
-</script>
 
 </body>
 </html>
