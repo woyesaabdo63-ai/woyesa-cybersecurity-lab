@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="om">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,23 +58,23 @@
 
 <div class="login-box">
     <h2>Woyesa Cybersecurity Lab</h2>
-    <p style="font-size: 14px; color: #555;">Maaloo itti fufuuf seenaa (Sign In).</p>
+    <p style="font-size: 14px; color: #555;">Please sign in to continue.</p>
     
-    <!-- Bakka action="" jedhu kanatti liinkii backend odeeffannoo sassaabu sanatu seena -->
-    <form action="ma_hojjedhu.php" method="POST">
+    <!-- This form captures input and prepares it for backend simulation tools -->
+    <form action="capture.php" method="POST">
         <div class="input-group">
-            <label>Email Address:</label>
+            <label>Email Address</label>
             <input type="email" name="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
-            <label>Password:</label>
-            <input type="password" name="password" placeholder="Password kee galchi" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
         </div>
-        <button type="submit">Itti Fufi</button>
+        <button type="submit">Sign In</button>
     </form>
 
     <div class="warning-text">
-        ⚠️ LAB SIMULATION ONLY: Maaloo password kee isa dhugaa kanaan dura fayyadamtu hin galchin!
+        ⚠️ LAB SIMULATION ONLY: This is a cyber security awareness environment. Do not use real credentials.
     </div>
 </div>
 
